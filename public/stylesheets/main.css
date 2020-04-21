@@ -1,0 +1,57 @@
+/*index page*/
+.card-image-top {
+	width: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+#card {
+	padding-right: 10px;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/*new form*/
+#newform {
+	margin: 50px auto;
+}
+form #name {
+	width: 50%;
+}
+form #brand {
+	width: 50%;
+}
+form #price {
+	width: 50%;
+}
+
+/*datepicker*/
+div .datepicker {
+	width: 50%;
+}
+
+.datepicker td, .datepicker th {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 0.85rem;
+}
+
+/*star rating*/
+.fa-star {
+	color:#ccc;
+}
+.selected {
+	color:#FF912C;
+}
+
+/*show page image*/
+.image-show {
+	width: 100%;
+}
+.container-show{
+	margin: 50px auto;
+}
+.description{
+	color: #6b6b6b;
+}

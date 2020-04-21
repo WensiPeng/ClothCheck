@@ -1,0 +1,24 @@
+<%- include("../partials/header") %>
+
+<div class="container">
+	<header class="jumbotron">
+		<h1 id="index-header"> Take a look of all the pieces you own ... </h1>
+		<a href="/allItems/new" class="btn btn-primary" role="button" id="index-button">Add a new item</a>
+	</header>
+
+	<div class="row" style="display:flex; flex-wrap: wrap">
+		<% items.forEach((item)=>{ %>
+		<div class="col-md-3 col-sm-6">
+			<div class="card">
+				<img src="<%=item.image%>" class="card-image-top">
+				<div class="card-body">
+					<h5 class="card-title"><%= item.name %></h5>
+					<a href="/allItems/<%= item.id %>" class="card-link">View more</a>
+				</div>
+			</div>
+		</div>
+		<% })%>
+	</div>
+</div>
+
+<%- include("../partials/footer") %>

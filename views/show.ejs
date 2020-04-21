@@ -1,0 +1,30 @@
+<%- include("../partials/header") %>
+<div class="container container-show">
+	<div class="row">
+		<div class="col-md-6 col-sm-12">
+			<img class="image-show" src="<%= item.image %>">
+		</div>
+		<div class="col-md-6 col-sm-12">
+			<h3><%= item.name %></h3>
+			<h4 class="pull-right">$<%= item.price %></h4>
+			<p>from <strong><%= item.brand %></strong></p>
+			<p class="description"><%= item.description %></p>
+			<%if(item.purchasedTime){%>
+				<p>Purchased at <%= item.purchasedTime %></p>
+		<%}%>
+			<p><%= item.rating %></p>
+			<input type = "hidden" name="item[rating]" id="rating-output" class="form-control" value='<%= item.rating %>'>
+			<div id="stars-output">
+				<span class="fas fa-star" data-value="1"></span>
+				<span class="fas fa-star" data-value="2"></span>
+				<span class="fas fa-star" data-value="3"></span>
+				<span class="fas fa-star" data-value="4"></span>
+				<span class="fas fa-star" data-value="5"></span>
+			</div>
+			<p>You have worn this <%= item.wornTimes %> times</p>
+		</div>
+	</div>
+</div>
+
+
+<%- include("../partials/footer") %>
