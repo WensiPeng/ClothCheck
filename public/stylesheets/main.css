@@ -55,3 +55,33 @@ div .datepicker {
 .description{
 	color: #6b6b6b;
 }
+
+/*delete button*/
+.delete-form{
+	display: inline;
+}
+
+.edit-button {
+	color: white;
+	background: #c7bca7;
+	border: none;
+}
+.delete-button {
+	color: white;
+	background: #c7bca7;
+	border: none;
+}
+/*.edit-button:hover{
+	background: #8f8778;
+}*/
+.edit-button:active, .edit-button:focus, .edit-button:hover{
+	background: #8f8778 !important;
+	box-shadow: none !important;
+}
+/*.delete-button:hover{
+	background: #8f8778;
+}*/
+.delete-button:active, .delete-button:focus, .delete-button:hover{
+	background: #8f8778 !important;
+	box-shadow: none !important;
+}

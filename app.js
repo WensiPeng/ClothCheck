@@ -60,6 +60,35 @@ app.get("/allItems/:id", function(req, res){
 	})
 })
 
+//EDIT item
+app.get("/allItems/:id/edit", function(req, res){
+	Item.findById(req.params.id, function(err, foundItem){
+		res.render("edit", {item: foundItem});
+	})
+})
+
+//UPDATE item
+app.put("/allItems/:id", function(req, res){
+	Item.findByIdAndUpdate(req.params.id, req.body.item, function(err, updatedItem){
+		if(err){
+			res.redirect("/allItems");
+		}else{
+			res.redirect("/allItems/" + req.params.id);
+		}
+	});
+})
+
+//DESTROY0 item
+app.delete("/allItems/:id", function(req, res){
+	Item.findByIdAndRemove(req.params.id, function(err){
+		if(err){
+			res.redirect("/allItems")
+		}else{
+			res.redirect("/allItems");
+		}
+	})
+})
+
 app.listen(3000, function(){
 	console.log("server is listening on port 3000 ...");
 })

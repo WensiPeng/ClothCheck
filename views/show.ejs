@@ -12,9 +12,8 @@
 			<%if(item.purchasedTime){%>
 				<p>Purchased at <%= item.purchasedTime %></p>
 		<%}%>
-			<p><%= item.rating %></p>
-			<input type = "hidden" name="item[rating]" id="rating-output" class="form-control" value='<%= item.rating %>'>
-			<div id="stars-output">
+			<input type = "hidden" name="item[rating]" class="rating" class="form-control" value='<%= item.rating %>'>
+			<div class="stars-output">
 				<span class="fas fa-star" data-value="1"></span>
 				<span class="fas fa-star" data-value="2"></span>
 				<span class="fas fa-star" data-value="3"></span>
@@ -22,6 +21,10 @@
 				<span class="fas fa-star" data-value="5"></span>
 			</div>
 			<p>You have worn this <%= item.wornTimes %> times</p>
+			<a class="btn btn-primary btn-sm edit-button" href="/allItems/<%= item.id %>/edit">Edit</a>
+			<form action="/allItems/<%= item.id %>?_method=delete" method="post" class="delete-form">
+				<button class="btn btn-primary btn-sm delete-button">Delete</button>
+			</form>
 		</div>
 	</div>
 </div>
