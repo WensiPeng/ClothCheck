@@ -45,13 +45,13 @@ Destroy	/allItems/:id 		DELETE      delete a particular item
 
 
 Workflow:
-	create some test items
-	create skeleton: RESTful routes
-	add mongoose database
-	data association
-	add simple styling
-	authentication
-	UI improvements
+	X create some test items
+	X create skeleton: RESTful routes
+	X add mongoose database
+	X add simple styling
+	  data association: associate everything with one user
+	  authentication
+	  UI improvements
 
 Sidenotes:
 	use Standard,
