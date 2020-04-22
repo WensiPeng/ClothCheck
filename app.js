@@ -8,6 +8,7 @@ var Item = require("./models/item");
 var User = require("./models/user");
 var passport = require("passport");
 var localStrategy = require("passport-local");
+var middleware = require("./middleware");
 
 //passport configuration
 app.use(require("express-session")({
@@ -39,9 +40,10 @@ app.get("/", function(req, res){
 })
 
 //INDEX page: view all clothing
-app.get("/allItems", function(req, res){
-	//find all items from db
-	Item.find({}, function(err, allItems){
+app.get("/allItems", middleware.isLoggedIn, function(req, res){
+	//find items that belong to the user from db
+
+	Item.find({"author.id": req.user._id}, function(err, allItems){
 		if(err){
 			console.log(err);
 		}else{
@@ -51,17 +53,18 @@ app.get("/allItems", function(req, res){
 })
 
 //NEW page: show new item form
-app.get("/allItems/new", function(req, res){
+app.get("/allItems/new", middleware.isLoggedIn, function(req, res){
 	res.render("new");
 })
 
 //CREATE: create a new item
-app.post("/allItems", function(req, res){
+app.post("/allItems", middleware.isLoggedIn, function(req, res){
 	var author = {
-		id: req.user.id,
+		id: req.user._id,
 		username: req.user.username
 	}
 	var newItem = req.body.item;
+	newItem.author = author;
 	Item.create(newItem, function(err, newItem){
 		if(err){
 			console.log(err);
@@ -72,21 +75,21 @@ app.post("/allItems", function(req, res){
 })
 
 //SHOW page: view one item with id
-app.get("/allItems/:id", function(req, res){
+app.get("/allItems/:id", middleware.isLoggedIn, function(req, res){
 	Item.findById(req.params.id, function(err, foundItem){
 		res.render("show", {item: foundItem});
 	})
 })
 
 //EDIT item
-app.get("/allItems/:id/edit", function(req, res){
+app.get("/allItems/:id/edit", middleware.isLoggedIn, function(req, res){
 	Item.findById(req.params.id, function(err, foundItem){
 		res.render("edit", {item: foundItem});
 	})
 })
 
 //UPDATE item
-app.put("/allItems/:id", function(req, res){
+app.put("/allItems/:id", middleware.isLoggedIn, function(req, res){
 	Item.findByIdAndUpdate(req.params.id, req.body.item, function(err, updatedItem){
 		if(err){
 			res.redirect("/allItems");
@@ -97,7 +100,7 @@ app.put("/allItems/:id", function(req, res){
 })
 
 //DESTROY item
-app.delete("/allItems/:id", function(req, res){
+app.delete("/allItems/:id", middleware.isLoggedIn, function(req, res){
 	Item.findByIdAndRemove(req.params.id, function(err){
 		if(err){
 			res.redirect("/allItems")
@@ -110,14 +113,14 @@ app.delete("/allItems/:id", function(req, res){
 //Authentication routes
 //SHOW register form
 app.get("/register", function(req, res){
-	res.render('register');
+	res.render('landing');
 })
 //CREATE add user
 app.post("/register", function(req, res){
 	var newUser = new User({username: req.body.username});
 	User.register(newUser, req.body.password, function(err, user){
 		if(err){
-			return res.render("register");
+			return res.render('landing', {anchor: 'register-page'});
 		}
 		passport.authenticate("local")(req, res, function(){
 			res.redirect("/allItems");
@@ -128,18 +131,18 @@ app.post("/register", function(req, res){
 
 //login
 app.get("/login", function(req, res){
-	res.render("login");
+	res.render("landing", {anchor: 'login-page'});
 })
 app.post("/login", passport.authenticate("local", {
 	successRedirect: "/allItems",
-	failureRedirect: "/login"
+	failureRedirect: "/#login-page"
 }), function(req, res){
 });
 
 //logout
 app.get("/logout", function(req, res){
 	req.logout();
-	res.redirect("/allItems");
+	res.redirect("/");
 })
 
 app.listen(3000, function(){
