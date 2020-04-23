@@ -16,12 +16,33 @@
 			<input type = "number" name="item[price]" id="price" class="form-control" min="0.01" step="0.01">
 		</div>
         <div class="form-group">
-        	<label for="purchasedDate">When did you purchase it?</label>
+        	<label for="purchasedTime">When did you purchase it?</label>
             <div class="datepicker datepicker-dropdown date input-group p-0 shadow-sm">
-                <input type="text" placeholder="Choose a purchased date" class="form-control py-4 px-4" id="purchasedDate">
+                <input type="text" placeholder="Choose a purchased date" class="form-control py-4 px-4" id="purchasedTime" name="item[purchasedTime]" data-date-format="mm/dd/yyyy">
                 <div class="input-group-append"><span class="input-group-text px-4"><i class="far fa-clock"></i></span></div>
             </div>
         </div><!-- End Date Picker Input -->
+        <div class="form-group">
+        	<label for="category">Category</label>
+        	<select name="item[category]" id="category" class="category">
+        		<option select="selected">Select a category</option>
+        		<option value="top">top</option>
+        		<option value="bottom">bottom</option>
+        		<option value="jacket">jacket</option>
+        		<option value="overall">dress/overall</option>
+        		<option value="accessory">accessory</option>
+        	</select>
+        </div>
+        <div class="form-group">
+        	<p>Which season would you wear this in?</p>
+        	<input type="hidden" name="item[season]" class="season" value="none">
+        	<label for="spring">spring/fall</label>
+        	<input type="checkbox" name="season" value="spring/fall" id="spring">
+        	<label for="summer">summer</label>
+        	<input type="checkbox" name="season" value="summer" id="summer">
+        	<label for="spring/fall">winter</label>
+        	<input type="checkbox" name="season" value="winter" id="winter">
+        </div>
         <div class="form-group">
 			<label for="image">Image url</label>
 			<input type = "text" name="item[image]" id="image" class="form-control">

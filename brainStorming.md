@@ -49,8 +49,8 @@ Workflow:
 	X create skeleton: RESTful routes
 	X add mongoose database
 	X add simple styling
-	  data association: associate everything with one user
-	  authentication
+	X data association: associate everything with one user
+	X authentication
 	  UI improvements
 
 Sidenotes:

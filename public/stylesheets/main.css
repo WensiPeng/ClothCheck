@@ -94,3 +94,7 @@ div .datepicker {
 	background: #8f8778 !important;
 	box-shadow: none !important;
 }
+
+.season + .category {
+	text-transform: capitalize;
+}

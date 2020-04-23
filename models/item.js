@@ -6,13 +6,13 @@ var itemSchema = new mongoose.Schema({
 	price: String,
 	image: String,
 	description: String,
-	category: String,
+	category: String, //top, bottom, dress, accessories
 	brand: String,
 	wornTimes: String,
 	author: String,
 	rating: String,
 	purchasedTime: Date,
-	season: String,
+	season: String, //spring/autom, summer, winter
 	color: String,
 	author: {
 		id: {

@@ -41,3 +41,15 @@ $(function(){
 	$('.stars-edit span').on("click", changeStarColor)
 })
 
+// get checked value in the New/Edit item form
+$(function(){
+	$("button").click(function(){
+		var season = [];
+		$.each($("input:checked"), function(){
+			season.push($(this).val());
+		})
+		$('.season')[0].value = season.join(" ");
+	})
+})
+
+

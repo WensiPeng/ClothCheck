@@ -26,7 +26,6 @@
 	    // INITIALIZE DATEPICKER PLUGIN
 	    $('.datepicker').datepicker({
 	        clearBtn: true,
-	        format: "dd/mm/yyyy",
 	        orientation: "auto"
 	    });
 	})
@@ -62,15 +61,21 @@
 	    </div>
 	    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
 	        <ul class="navbar-nav ml-auto">
+	        	<%if(!currentUser){ %>
 				<li class="nav-item" id="navbar-login">
 					<a class="nav-link" href="/#register-page">Register</a>
 				</li>
 				<li class="nav-item" id="navbar-login">
 					<a class="nav-link" href="/#login-page">Login</a>
 				</li>
+				<% }else{ %>
+				<li class="nav-item" id="navbar-login">
+					<a class="nav-link" href="#">Hi <%= currentUser.username %></a>
+				</li>
 				<li class="nav-item" id="navbar-logout">
 					<a class="nav-link" href="/logout">Logout</a>
-				</li>		
+				</li>	
+				<%} %>	
 	        </ul>
 	    </div>
 	</nav>

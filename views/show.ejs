@@ -8,9 +8,13 @@
 			<h3><%= item.name %></h3>
 			<h4 class="pull-right">$<%= item.price %></h4>
 			<p>from <strong><%= item.brand %></strong></p>
+			<p><%= item.season %> </p>
+			<%if(item.category !== "Select a category"){ %>
+			<p><%= item.category %> </p>
+			<%} %>
 			<p class="description"><%= item.description %></p>
 			<%if(item.purchasedTime){%>
-				<p>Purchased at <%= item.purchasedTime %></p>
+				<p>Purchased at <%= item.purchasedTime.toDateString() %></p>
 		<%}%>
 			<input type = "hidden" name="item[rating]" class="rating" class="form-control" value='<%= item.rating %>'>
 			<div class="stars-output">

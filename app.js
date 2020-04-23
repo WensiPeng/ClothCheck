@@ -32,6 +32,11 @@ mongoose.connect(process.env.DATABASEURL, {
 	useUnifiedTopology: true
 })
 
+app.use(function(req, res, next){
+	res.locals.currentUser = req.user;
+	next();
+});
+
 //seedDB();
 
 //landing page
@@ -92,6 +97,7 @@ app.get("/allItems/:id/edit", middleware.isLoggedIn, function(req, res){
 app.put("/allItems/:id", middleware.isLoggedIn, function(req, res){
 	Item.findByIdAndUpdate(req.params.id, req.body.item, function(err, updatedItem){
 		if(err){
+			console.log(err);
 			res.redirect("/allItems");
 		}else{
 			res.redirect("/allItems/" + req.params.id);
@@ -144,6 +150,8 @@ app.get("/logout", function(req, res){
 	req.logout();
 	res.redirect("/");
 })
+
+//
 
 app.listen(3000, function(){
 	console.log("server is listening on port 3000 ...");
