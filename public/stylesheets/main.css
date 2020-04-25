@@ -98,3 +98,8 @@ div .datepicker {
 .season + .category {
 	text-transform: capitalize;
 }
+
+/*not show filtered out items*/
+.filterOut {
+	display: none;
+}

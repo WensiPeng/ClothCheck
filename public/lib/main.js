@@ -43,7 +43,7 @@ $(function(){
 
 // get checked value in the New/Edit item form
 $(function(){
-	$("button").click(function(){
+	$(".season-input button").click(function(){
 		var season = [];
 		$.each($("input:checked"), function(){
 			season.push($(this).val());

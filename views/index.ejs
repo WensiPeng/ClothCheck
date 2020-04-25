@@ -6,9 +6,47 @@
 		<a href="/allItems/new" class="btn btn-primary" role="button" id="index-button">Add a new item</a>
 	</header>
 
+	<!-- filter button -->
+	<button id="all">Show all</button>
+	<ul class="filter-links" id="season-filter">
+		<li>
+			<label for="season-spring">Spring</label>
+			<input type="checkbox" id="season-spring" value="spring" name="season">	
+		</li>
+		<li>
+			<label for="season-summer">Summer</label>
+			<input type="checkbox" id="season-summer" value="summer" name="season">
+		</li>
+		<li>
+			<label for="season-winter">Winter</label>
+			<input type="checkbox" id="season-winter" value="winter" name="season">		
+		</li>
+	</ul>
+	<ul class="filter-links" id="category-filter">
+		<li>
+			<label for="cat-top">Top</label>
+			<input type="checkbox" id="cat-top" value="top" name="category">	
+		</li>
+		<li>
+			<label for="cat-bottom">Bottom</label>
+			<input type="checkbox" id="cat-bottom" value="bottom" name="category">
+		</li>
+		<li>
+			<label for="cat-jacket">Jacket</label>
+			<input type="checkbox" id="cat-jacket" value="jacket" name="category">
+		</li>
+		<li>
+			<label for="cat-overall">Dress or overall</label>
+			<input type="checkbox" id="cat-overall" value="overall" name="category">
+		</li>
+		<li>
+			<label for="cat-accessory">accessory</label>
+			<input type="checkbox" id="cat-accessory" value="accessory" name="category">
+		</li>		
+	</ul>
 	<div class="row" style="display:flex; flex-wrap: wrap">
 		<% items.forEach((item)=>{ %>
-		<div class="col-md-3 col-sm-6">
+		<div class="col-md-3 col-sm-6 filter-items <%= item.season %> <%= item.category %>">
 			<div class="card">
 				<img src="<%=item.image%>" class="card-image-top">
 				<div class="card-body">
@@ -20,5 +58,33 @@
 		<% })%>
 	</div>
 </div>
+
+<!--  filter items by category and season -->
+<script type="text/javascript">
+	$(function(){
+		var $itemsToFilter = [];
+		$("#season-filter").click(filterItems($itemsToFilter));
+		$("#category-filter").click(filterItems($itemsToFilter));
+		$("#all").click(function(){
+			$('.filter-items').removeClass("filterOut");
+		});
+
+	})
+
+	function filterItems(itemsToFilter){
+		return function(){
+			$('.filter-items').addClass("filterOut");
+			$("input:checkbox:checked").each(function(){
+			$(".filter-items").filter("."+$(this).val()).removeClass("filterOut");
+			})
+			//if all checkbox are unchecked, show all
+			if(!$("input:checkbox:checked").length){
+				$('.filter-items').removeClass("filterOut");
+				itemsToFilter = $(".filter-items");
+			}
+		}
+	}	
+	
+</script>
 
 <%- include("../partials/footer") %>

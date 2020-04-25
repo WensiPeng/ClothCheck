@@ -76,4 +76,12 @@ router.delete("/:id", middleware.isLoggedIn, function(req, res){
 	})
 })
 
+//Filter all items
+//filter by category
+//filter by season
+
+//Pagination
+
+//Sorting
+
 module.exports = router;
