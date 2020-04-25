@@ -6,44 +6,49 @@
 		<a href="/allItems/new" class="btn btn-primary" role="button" id="index-button">Add a new item</a>
 	</header>
 
-	<!-- filter button -->
-	<button id="all">Show all</button>
-	<ul class="filter-links" id="season-filter">
-		<li>
-			<label for="season-spring">Spring</label>
-			<input type="checkbox" id="season-spring" value="spring" name="season">	
-		</li>
-		<li>
-			<label for="season-summer">Summer</label>
-			<input type="checkbox" id="season-summer" value="summer" name="season">
-		</li>
-		<li>
-			<label for="season-winter">Winter</label>
-			<input type="checkbox" id="season-winter" value="winter" name="season">		
-		</li>
-	</ul>
-	<ul class="filter-links" id="category-filter">
-		<li>
-			<label for="cat-top">Top</label>
-			<input type="checkbox" id="cat-top" value="top" name="category">	
-		</li>
-		<li>
-			<label for="cat-bottom">Bottom</label>
-			<input type="checkbox" id="cat-bottom" value="bottom" name="category">
-		</li>
-		<li>
-			<label for="cat-jacket">Jacket</label>
-			<input type="checkbox" id="cat-jacket" value="jacket" name="category">
-		</li>
-		<li>
-			<label for="cat-overall">Dress or overall</label>
-			<input type="checkbox" id="cat-overall" value="overall" name="category">
-		</li>
-		<li>
-			<label for="cat-accessory">accessory</label>
-			<input type="checkbox" id="cat-accessory" value="accessory" name="category">
-		</li>		
-	</ul>
+	<div class="dropdown" id="filter-dropdwon">
+	  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	    <i class="fas fa-filter"></i> Filter
+	  </button>
+	
+		<!-- filter button -->
+		<ul class="dropdown-menu">
+			<ul>
+				<a href="#" id="all">Show all</a>
+			</ul>
+			<hr>
+			<ul class="filter-links" id="season-filter">
+				<li>
+					<a href="#" class="dropdown-item"><input type="checkbox" id="season-spring" value="spring" name="season"> Spring/fall</a>
+				</li>
+				<li>
+					<a href="#" class="dropdown-item"><input type="checkbox" id="season-summer" value="summer" name="season"> Summer</a>
+				</li>
+				<li>
+					<a href="#" class="dropdown-item"><input type="checkbox" id="season-winter" value="winter" name="season"> Winter</a>		
+				</li>
+			</ul>
+			<hr>
+			<ul class="filter-links" id="category-filter">
+				<li>
+					<a href="#" class="dropdown-item"><input type="checkbox" id="cat-top" value="top" name="category"> Top</a>
+				</li>
+				<li>
+					<a href="#" class="dropdown-item"><input type="checkbox" id="cat-bottom" value="bottom" name="category"> Bottom</a>
+				</li>
+				<li>
+					<a href="#" class="dropdown-item"><input type="checkbox" id="cat-jacket" value="jacket" name="category"> Jacket</a>
+				</li>
+				<li>
+					<a href="#" class="dropdown-item"><input type="checkbox" id="cat-overall" value="overall" name="category"> Dress/overall</a>
+				</li>
+				<li>
+					<a href="#" class="dropdown-item"><input type="checkbox" id="cat-accessory" value="accessory" name="category"> Accessory</a>
+				</li>		
+			</ul>
+		</ul>
+	</div>
+
 	<div class="row" style="display:flex; flex-wrap: wrap">
 		<% items.forEach((item)=>{ %>
 		<div class="col-md-3 col-sm-6 filter-items" data-category="<%= item.season %> <%= item.category %>">
@@ -64,6 +69,9 @@
 <!-- Within season filter or category filter, creterias are combined using OR logic. Between season filter and category filter, creterias are combined using AND logic. -->
 <script type="text/javascript">
 	$(function(){
+		$('#all').click(function(){
+			$('.filter-items').show();
+		})
 		var $filterCheckboxes = $('input[type="checkbox"]');
 
 		$filterCheckboxes.on('change', function() {

@@ -103,3 +103,23 @@ div .datepicker {
 .filterOut {
 	display: none;
 }
+
+/*remove li bullet points in filter*/
+.dropdown-menu li {
+	list-style-type: none;
+}
+.filter-links {
+	padding: 0 0 0 0;
+}
+button.dropdown-toggle{
+	color: grey;
+	background-color: white;
+}
+button.dropdown-toggle:active, .delete-button:focus, .delete-button:hover{
+	color: grey;
+	background: white !important;
+	box-shadow: none !important;
+}
+div.dropdown{
+	padding-bottom: 10px;
+}
