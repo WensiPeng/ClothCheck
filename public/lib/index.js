@@ -4,6 +4,7 @@
 	$(function(){
 		$('#all').click(function(){
 			$('.filter-items').show();
+			$('input[type="checkbox"]').prop("checked", false);
 		})
 		var $filterCheckboxes = $('input[type="checkbox"]');
 		$filterCheckboxes.on('change', function() {
@@ -63,7 +64,7 @@
 				b = parseInt($(b).attr("price"), 10);
 				//sort from lower price to higher price
 				return b - a
-			})
+			}).appendTo("#sort-items");
 		})
 	})
 	

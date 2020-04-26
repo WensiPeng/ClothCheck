@@ -65,5 +65,6 @@ div.dropdown{
 	margin-right: 10px;
 }
 #sort-items {
-	float: left;
+	clear: both;
 }
+
