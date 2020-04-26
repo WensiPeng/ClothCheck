@@ -1,0 +1,28 @@
+/*new form*/
+#newform {
+	margin: 50px auto;
+}
+form #name {
+	width: 50%;
+}
+form #brand {
+	width: 50%;
+}
+form #price {
+	width: 50%;
+}
+
+/*datepicker*/
+div .datepicker {
+	width: 50%;
+}
+
+.datepicker td, .datepicker th {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 0.85rem;
+}
+
+.season + .category {
+	text-transform: capitalize;
+}

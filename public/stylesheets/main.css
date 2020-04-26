@@ -2,71 +2,11 @@
 	margin-top: 70px;
 }
 
+/*navbar*/
 .navbar-dark {
 	background-color: #B1A296;
 }
 
-/*style index page title*/
-.jumbotron {
-	color: #5D5C61;
-	text-align: center;
-	background-color: white;
-	padding-bottom: 0px;
-	padding-top: 0px;
-}
-#add-new {
-	color:#5D5C61;
-}
-
-/*index page*/
-.card-image-top {
-	width: auto;
-    max-width: 100%;
-    max-height: 100%;
-}
-
-.card-title{
-	color: #5D5C61;
-	font-size: 15px;
-	margin-bottom: 0px;
-}
-.card-link{
-	color: #938e94;
-	font-size: 15px;
-	text-align: center;
-}
-.card-body{
-	padding: 3px;
-}
-.filter-items{
-	padding-left: 10px;
-	padding-right: 10px;
-}
-
-/*new form*/
-#newform {
-	margin: 50px auto;
-}
-form #name {
-	width: 50%;
-}
-form #brand {
-	width: 50%;
-}
-form #price {
-	width: 50%;
-}
-
-/*datepicker*/
-div .datepicker {
-	width: 50%;
-}
-
-.datepicker td, .datepicker th {
-    width: 2.5rem;
-    height: 2.5rem;
-    font-size: 0.85rem;
-}
 
 /*star rating*/
 .fa-star {
@@ -76,85 +16,5 @@ div .datepicker {
 	color:#FF912C;
 }
 
-/*show page image*/
-.image-show {
-	width: 100%;
-}
-.container-show{
-	margin: 50px auto;
-}
-.description{
-	color: #6b6b6b;
-}
 
-/*delete button*/
-.delete-form{
-	display: inline;
-}
 
-.edit-button {
-	color: white;
-	background: #c7bca7;
-	border: none;
-}
-.delete-button {
-	color: white;
-	background: #c7bca7;
-	border: none;
-}
-/*.edit-button:hover{
-	background: #8f8778;
-}*/
-.edit-button:active, .edit-button:focus, .edit-button:hover{
-	background: #8f8778 !important;
-	box-shadow: none !important;
-}
-/*.delete-button:hover{
-	background: #8f8778;
-}*/
-.delete-button:active, .delete-button:focus, .delete-button:hover{
-	background: #8f8778 !important;
-	box-shadow: none !important;
-}
-
-.season + .category {
-	text-transform: capitalize;
-}
-
-/*not show filtered out items*/
-.filterOut {
-	display: none;
-}
-
-/*filter styling*/
-.dropdown-menu li {
-	list-style-type: none;
-}
-.filter-links {
-	padding: 0 0 0 0;
-}
-button.dropdown-toggle{
-	color: #938e94;
-	background-color: white;
-}
-button.dropdown-toggle:active, .delete-button:focus, .delete-button:hover{
-	color: #938e94;
-	background: white !important;
-	box-shadow: none !important;
-}
-div.dropdown{
-	padding-bottom: 10px;
-}
-#filter-dropdown {
-	float: left;
-	width: 150px;
-	margin-right: 10px;
-}
-#sort-dropdown {
-	float: left;
-	width: 150px;
-	margin-right: 10px;
-}
-#button-wrapper {
-	overflow: hidden;
-}

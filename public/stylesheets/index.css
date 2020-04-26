@@ -1,0 +1,69 @@
+/*style index page title*/
+.jumbotron {
+	color: #5D5C61;
+	text-align: center;
+	background-color: white;
+	padding-bottom: 0px;
+	padding-top: 0px;
+}
+#add-new {
+	color:#5D5C61;
+}
+
+/*index page*/
+.card-image-top {
+	width: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.card-title{
+	color: #5D5C61;
+	font-size: 15px;
+	margin-bottom: 0px;
+}
+.card-link{
+	color: #938e94;
+	font-size: 15px;
+	text-align: center;
+}
+.card-body{
+	padding: 3px;
+}
+.filter-items{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+/*filter styling*/
+.dropdown-menu li {
+	list-style-type: none;
+}
+.filter-links {
+	padding: 0 0 0 0;
+}
+button.dropdown-toggle{
+	color: #938e94;
+	background-color: white;
+}
+button.dropdown-toggle:active, .delete-button:focus, .delete-button:hover{
+	color: #938e94;
+	background: white !important;
+	box-shadow: none !important;
+}
+div.dropdown{
+	padding-bottom: 10px;
+}
+#filter-dropdown {
+	float: left;
+	width: 150px;
+	margin-right: 10px;
+}
+#sort-dropdown {
+	float: left;
+	width: 150px;
+	margin-right: 10px;
+}
+#sort-items {
+	float: left;
+}
