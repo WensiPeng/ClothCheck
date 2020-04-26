@@ -25,11 +25,22 @@
     max-height: 100%;
 }
 
-#card {
+.card-title{
+	color: #5D5C61;
+	font-size: 15px;
+	margin-bottom: 0px;
+}
+.card-link{
+	color: #938e94;
+	font-size: 15px;
+	text-align: center;
+}
+.card-body{
+	padding: 3px;
+}
+.filter-items{
+	padding-left: 10px;
 	padding-right: 10px;
-    padding-left: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 
 /*new form*/
@@ -123,11 +134,11 @@ div .datepicker {
 	padding: 0 0 0 0;
 }
 button.dropdown-toggle{
-	color: #B1A296;
+	color: #938e94;
 	background-color: white;
 }
 button.dropdown-toggle:active, .delete-button:focus, .delete-button:hover{
-	color: #B1A296;
+	color: #938e94;
 	background: white !important;
 	box-shadow: none !important;
 }

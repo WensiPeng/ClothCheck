@@ -74,11 +74,11 @@
 <!-- 		<ul id="sort-items"> -->
 		<% items.forEach((item)=>{ %>
 		<div class="col-md-3 col-sm-6 filter-items" data-category="<%= item.season %> <%= item.category %>" price="<%= item.price %>">
-			<div class="card">
-				<img src="<%=item.image%>" class="card-image-top">
+			<div class="card border-0">
+				<a href="/allItems/<%= item.id %>"><img src="<%=item.image%>" class="card-image-top"></a>
 				<div class="card-body">
-					<h5 class="card-title"><%= item.name %></h5>
-					<a href="/allItems/<%= item.id %>" class="card-link">View more</a>
+					<a href="/allItems/<%= item.id %>"><p class="card-title"><%= item.brand %></p></a>
+					<a href="/allItems/<%= item.id %>"><p class="card-title"><%= item.name %></p></a>
 				</div>
 			</div>
 		</div>
