@@ -6,6 +6,17 @@
 	background-color: #B1A296;
 }
 
+/*style index page title*/
+.jumbotron {
+	color: #5D5C61;
+	text-align: center;
+	background-color: white;
+	padding-bottom: 0px;
+	padding-top: 0px;
+}
+#add-new {
+	color:#5D5C61;
+}
 
 /*index page*/
 .card-image-top {
@@ -104,7 +115,7 @@ div .datepicker {
 	display: none;
 }
 
-/*remove li bullet points in filter*/
+/*filter styling*/
 .dropdown-menu li {
 	list-style-type: none;
 }
@@ -112,14 +123,27 @@ div .datepicker {
 	padding: 0 0 0 0;
 }
 button.dropdown-toggle{
-	color: grey;
+	color: #B1A296;
 	background-color: white;
 }
 button.dropdown-toggle:active, .delete-button:focus, .delete-button:hover{
-	color: grey;
+	color: #B1A296;
 	background: white !important;
 	box-shadow: none !important;
 }
 div.dropdown{
 	padding-bottom: 10px;
+}
+#filter-dropdown {
+	float: left;
+	width: 150px;
+	margin-right: 10px;
+}
+#sort-dropdown {
+	float: left;
+	width: 150px;
+	margin-right: 10px;
+}
+#button-wrapper {
+	overflow: hidden;
 }

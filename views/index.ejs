@@ -1,57 +1,79 @@
 <%- include("../partials/header") %>
 
 <div class="container">
-	<header class="jumbotron">
-		<h1 id="index-header"> Take a look of all the pieces you own ... </h1>
-		<a href="/allItems/new" class="btn btn-primary" role="button" id="index-button">Add a new item</a>
-	</header>
-
-	<div class="dropdown" id="filter-dropdwon">
-	  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-	    <i class="fas fa-filter"></i> Filter
-	  </button>
+	<div class="jumbotron">
+		<h3 id="index-header"> My Closet </h3>
+		<a href="/allItems/new" id="add-new"><i class="fas fa-plus"></i> Add a new item</a>
+	</div>
 	
+	<div id="button-wrapper">
+		<!-- sort button -->
+		<div class="dropdown" id="sort-dropdown">
+		    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		    <i class="fas fa-sort"></i> Sort by
+		    </button>
+			<ul class="dropdown-menu">
+				<li>
+					<a href="#" class="dropdown-item" id="priceAscd">Price from low to high</a>
+				</li>
+				<li>
+					<a href="#" class="dropdown-item" id="priceDscd">Price from high to low</a>
+				</li>
+				<li>
+					<a href="#" class="dropdown-item" id="wornAscd">Least worn to most worn</a>
+				</li>
+				<li>
+					<a href="#" class="dropdown-item" id="wornDscd">Most worn to least worn</a>
+				</li>
+			</ul>
+		</div>
 		<!-- filter button -->
-		<ul class="dropdown-menu">
-			<ul>
-				<a href="#" id="all">Show all</a>
+		<div class="dropdown" id="filter-dropdown">
+		  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		    <i class="fas fa-filter"></i> Filter
+		  </button>
+			<ul class="dropdown-menu">
+				<ul>
+					<a href="#" id="all">Show all</a>
+				</ul>
+				<hr>
+				<ul class="filter-links" id="season-filter">
+					<li>
+						<a href="#" class="dropdown-item"><input type="checkbox" id="season-spring" value="spring" name="season"> Spring/fall</a>
+					</li>
+					<li>
+						<a href="#" class="dropdown-item"><input type="checkbox" id="season-summer" value="summer" name="season"> Summer</a>
+					</li>
+					<li>
+						<a href="#" class="dropdown-item"><input type="checkbox" id="season-winter" value="winter" name="season"> Winter</a>		
+					</li>
+				</ul>
+				<hr>
+				<ul class="filter-links" id="category-filter">
+					<li>
+						<a href="#" class="dropdown-item"><input type="checkbox" id="cat-top" value="top" name="category"> Top</a>
+					</li>
+					<li>
+						<a href="#" class="dropdown-item"><input type="checkbox" id="cat-bottom" value="bottom" name="category"> Bottom</a>
+					</li>
+					<li>
+						<a href="#" class="dropdown-item"><input type="checkbox" id="cat-jacket" value="jacket" name="category"> Jacket</a>
+					</li>
+					<li>
+						<a href="#" class="dropdown-item"><input type="checkbox" id="cat-overall" value="overall" name="category"> Dress/overall</a>
+					</li>
+					<li>
+						<a href="#" class="dropdown-item"><input type="checkbox" id="cat-accessory" value="accessory" name="category"> Accessory</a>
+					</li>		
+				</ul>
 			</ul>
-			<hr>
-			<ul class="filter-links" id="season-filter">
-				<li>
-					<a href="#" class="dropdown-item"><input type="checkbox" id="season-spring" value="spring" name="season"> Spring/fall</a>
-				</li>
-				<li>
-					<a href="#" class="dropdown-item"><input type="checkbox" id="season-summer" value="summer" name="season"> Summer</a>
-				</li>
-				<li>
-					<a href="#" class="dropdown-item"><input type="checkbox" id="season-winter" value="winter" name="season"> Winter</a>		
-				</li>
-			</ul>
-			<hr>
-			<ul class="filter-links" id="category-filter">
-				<li>
-					<a href="#" class="dropdown-item"><input type="checkbox" id="cat-top" value="top" name="category"> Top</a>
-				</li>
-				<li>
-					<a href="#" class="dropdown-item"><input type="checkbox" id="cat-bottom" value="bottom" name="category"> Bottom</a>
-				</li>
-				<li>
-					<a href="#" class="dropdown-item"><input type="checkbox" id="cat-jacket" value="jacket" name="category"> Jacket</a>
-				</li>
-				<li>
-					<a href="#" class="dropdown-item"><input type="checkbox" id="cat-overall" value="overall" name="category"> Dress/overall</a>
-				</li>
-				<li>
-					<a href="#" class="dropdown-item"><input type="checkbox" id="cat-accessory" value="accessory" name="category"> Accessory</a>
-				</li>		
-			</ul>
-		</ul>
+		</div>
 	</div>
 
-	<div class="row" style="display:flex; flex-wrap: wrap">
+	<div class="row" style="display:flex; flex-wrap: wrap" id="sort-items">
+<!-- 		<ul id="sort-items"> -->
 		<% items.forEach((item)=>{ %>
-		<div class="col-md-3 col-sm-6 filter-items" data-category="<%= item.season %> <%= item.category %>">
+		<div class="col-md-3 col-sm-6 filter-items" data-category="<%= item.season %> <%= item.category %>" price="<%= item.price %>">
 			<div class="card">
 				<img src="<%=item.image%>" class="card-image-top">
 				<div class="card-body">
@@ -61,6 +83,7 @@
 			</div>
 		</div>
 		<% })%>
+<!-- 		</ul> -->
 	</div>
 </div>
 
@@ -73,19 +96,13 @@
 			$('.filter-items').show();
 		})
 		var $filterCheckboxes = $('input[type="checkbox"]');
-
 		$filterCheckboxes.on('change', function() {
-
 		  var selectedFilters = {};
-
 		  $filterCheckboxes.filter(':checked').each(function() {
-
 		    if (!selectedFilters.hasOwnProperty(this.name)) {
 		      selectedFilters[this.name] = [];
 		    }
-
 		    selectedFilters[this.name].push(this.value);
-
 		  });
 
 		  // create a collection containing all of the filterable elements
@@ -93,35 +110,52 @@
 
 		  // loop over the selected filter name -> (array) values pairs
 		  $.each(selectedFilters, function(name, filterValues) {
-
 		    // filter each .filter-items element
 		    $filteredResults = $filteredResults.filter(function() {
-
 		      var matched = false,
 		        currentFilterValues = $(this).data('category').split(' ');
-
 		      // loop over each category value in the current .flower's data-category
 		      $.each(currentFilterValues, function(_, currentFilterValue) {
-
 		        // if the current category exists in the selected filters array
 		        // set matched to true, and stop looping. as we're ORing in each
 		        // set of filters, we only need to match once
-
 		        if ($.inArray(currentFilterValue, filterValues) != -1) {
 		          matched = true;
 		          return false;
 		        }
 		      });
-
 		      // if matched is true the current .filter-items element is returned
 		      return matched;
-
 		    });
 		  });
 
 		  $('.filter-items').hide().filter($filteredResults).show();
 		});
 	})	
+	
+	//sort item by price 
+	$(function(){
+		var itemsToSort = $(".filter-items");
+		$("#priceAscd").click(function(){
+			itemsToSort.sort(function(a, b){
+			a = parseInt($(a).attr("price"), 10);
+			b = parseInt($(b).attr("price"), 10);
+			console.log("a: " + a);
+			console.log("b: " + b);
+			//sort from lower price to higher price
+			return a - b;
+			}).appendTo("#sort-items");
+
+		})
+		$("#priceDscd").click(function()
+			{itemsToSort.sort(function(a, b){
+				a = parseInt($(a).attr("price"), 10);
+				b = parseInt($(b).attr("price"), 10);
+				//sort from lower price to higher price
+				return b - a
+			})
+		})
+	})
 	
 </script>
 

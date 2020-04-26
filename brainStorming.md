@@ -1,10 +1,10 @@
 Goal: keep track of clothes that I own.
 
 Features: 
-	view all my clothes,
-	add items,
-	edit items,
-	delete items,
+	X view all my clothes,
+	X add items,
+	X edit items,
+	X delete items,
 
 Advance features:
 	log what I wear today,
@@ -51,6 +51,13 @@ Workflow:
 	X add simple styling
 	X data association: associate everything with one user
 	X authentication
+	  features:
+	  	X filter
+	  	sorting
+	  	pagination
+	  out fit of the day
+	  add weather plug in
+	  outfit generater?	
 	  UI improvements
 
 Sidenotes:
