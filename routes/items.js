@@ -42,7 +42,7 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 //SHOW page: view one item with id
 router.get("/:id", middleware.isLoggedIn, function(req, res){
 	Item.findById(req.params.id, function(err, foundItem){
-		res.render("show", {item: foundItem});
+		res.render("./myCloset/show", {item: foundItem});
 	})
 })
 

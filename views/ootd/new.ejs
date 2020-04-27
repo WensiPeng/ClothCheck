@@ -16,9 +16,9 @@
                 <div class="input-group-append"><span class="input-group-text px-4"><i class="far fa-clock"></i></span></div>
             </div>
 		</div>
-		<div class="form-group">
+		
 			<label for="">Select your outfit</label>
-			<div id="select-section">
+			<div id="select-section" class="container">
 				<div id="button-wrapper">
 					<!-- sort button -->
 					<div class="dropdown" id="sort-dropdown">
@@ -87,12 +87,12 @@
 					<% items.forEach((item)=>{ %>
 					<div class="col-md-2 col-sm-3 col-6 filter-items" data-category="<%= item.season %> <%= item.category %>" price="<%= item.price %>">
 						<div class="card border-0">
-							<a href="#">
-								<img src="<%=item.image%>" class="card-image-top">
-								<div class="add-button">
+							<!-- <a href="#"> -->
+								<img src="<%=item.image%>" class="card-image-top card-img">
+								<div class="add-button card-img-overlay">
 									<i class="fas fa-plus"></i>
 								</div>
-							</a>
+							<!-- </a> -->
 							<div class="card-body">
 								<a href="#"><p class="card-title"><%= item.brand %></p></a>
 								<a href="#"><p class="card-title"><%= item.name %></p></a>
@@ -106,7 +106,12 @@
 
 
 			</div>
+	
+		<div class="form-group">
+			<label for="image">Upload an image</label>
+			<input type="text" placeholder="Image url" class="form-control">
 		</div>
+		<button>Submit</button>
 	</form>
 </div>
 
