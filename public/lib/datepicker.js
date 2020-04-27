@@ -3,6 +3,8 @@
 	    // INITIALIZE DATEPICKER PLUGIN
 	    $('.datepicker').datepicker({
 	        clearBtn: true,
-	        orientation: "auto"
+	        orientation: "auto",
+	        todayBtn: true,
+	        todayHighlight: true
 	    });
 	})

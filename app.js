@@ -13,6 +13,7 @@ var middleware = require("./middleware");
 //require Routes
 var itemRoutes = require("./routes/items");
 var indexRoutes = require("./routes/index");
+var ootdRoutes = require("./routes/ootd");
 
 
 app.set("view engine", "ejs");
@@ -48,6 +49,7 @@ app.use(function(req, res, next){
 //
 app.use(indexRoutes);
 app.use("/allItems", itemRoutes);
+app.use("/outfit-of-the-day", ootdRoutes);
 
 //seedDB();
 

@@ -12,14 +12,14 @@ router.get("/", middleware.isLoggedIn, function(req, res){
 		if(err){
 			console.log(err);
 		}else{
-			res.render("index", {items: allItems});
+			res.render("./myCloset/index", {items: allItems});
 		}
 	})
 })
 
 //NEW page: show new item form
 router.get("/new", middleware.isLoggedIn, function(req, res){
-	res.render("new");
+	res.render("./myCloset/new");
 })
 
 //CREATE: create a new item
@@ -49,7 +49,7 @@ router.get("/:id", middleware.isLoggedIn, function(req, res){
 //EDIT item
 router.get("/:id/edit", middleware.isLoggedIn, function(req, res){
 	Item.findById(req.params.id, function(err, foundItem){
-		res.render("edit", {item: foundItem});
+		res.render("./myCloset/edit", {item: foundItem});
 	})
 })
 

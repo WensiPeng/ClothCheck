@@ -53,12 +53,32 @@ Workflow:
 	X authentication
 	  features:
 	  	X filter
-	  	sorting
+	  	X sorting
 	  	pagination
 	  out fit of the day
 	  add weather plug in
 	  outfit generater?	
 	  UI improvements
+
+Outfit of the Day
+Name 	Path 						HTTP Verb	Purpose
+Index	/outfit-of-the-day			GET			show all outfits
+New		/outfit-of-the-day/new  	GET         show new outfit form
+Create	/outfit-of-the-day			POST        create a new outfit
+Show	/outfit-of-the-day/:id      GET         show info of one outfit
+Edit 	/outfit-of-the-day/:id/edit GET         show edit form of an outfit
+Update	/outfit-of-the-day/:id 		PUT         update a outfit
+Destroy	/outfit-of-the-day/:id 		DELETE      delete a outfit
+
+New outfit of the day:
+	X Date picker
+	 A search field to search item
+	 A section show all items
+	 Filter and sort feature
+	 Click on items to add to outfit
+	 Click to remove items from outfit
+	 Add to wornTimes
+	 Add to woreDate
 
 Sidenotes:
 	use Standard,

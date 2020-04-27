@@ -1,0 +1,113 @@
+<%- include("../partials/header") %>
+<link rel="stylesheet" href="/stylesheets/index.css">
+<link rel="stylesheet" href="/stylesheets/form.css">
+<link rel="stylesheet" href="/stylesheets/newOOTD.css">
+<script type="text/javascript" src="/lib/stars.js"></script>
+<script type="text/javascript" src="/lib/datepicker.js"></script>
+<script type="text/javascript" src="/lib/index.js"></script>
+<script type="text/javascript" src="/lib/newOOTD.js"></script>
+
+<div class="container">
+	<form action="/outfit-of-the-day", method="POST">
+		<div class="form-group">
+			<label for="date">Date</label>
+            <div class="datepicker datepicker-dropdown date input-group p-0 shadow-sm">
+                <input type="text" class="form-control py-4 px-4" id="date" name="woreDate" data-date-format="mm/dd/yyyy">
+                <div class="input-group-append"><span class="input-group-text px-4"><i class="far fa-clock"></i></span></div>
+            </div>
+		</div>
+		<div class="form-group">
+			<label for="">Select your outfit</label>
+			<div id="select-section">
+				<div id="button-wrapper">
+					<!-- sort button -->
+					<div class="dropdown" id="sort-dropdown">
+					    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    <i class="fas fa-sort"></i> Sort by
+					    </button>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="#" class="dropdown-item" id="priceAscd">Price from low to high</a>
+							</li>
+							<li>
+								<a href="#" class="dropdown-item" id="priceDscd">Price from high to low</a>
+							</li>
+							<li>
+								<a href="#" class="dropdown-item" id="wornAscd">Least worn to most worn</a>
+							</li>
+							<li>
+								<a href="#" class="dropdown-item" id="wornDscd">Most worn to least worn</a>
+							</li>
+						</ul>
+					</div>
+					<!-- filter button -->
+					<div class="dropdown" id="filter-dropdown">
+					  <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					    <i class="fas fa-filter"></i> Filter
+					  </button>
+						<ul class="dropdown-menu">
+							<ul>
+								<a href="#" id="all">Show all</a>
+							</ul>
+							<hr>
+							<ul class="filter-links" id="season-filter">
+								<li>
+									<a href="#" class="dropdown-item"><input type="checkbox" id="season-spring" value="spring" name="season"> Spring/fall</a>
+								</li>
+								<li>
+									<a href="#" class="dropdown-item"><input type="checkbox" id="season-summer" value="summer" name="season"> Summer</a>
+								</li>
+								<li>
+									<a href="#" class="dropdown-item"><input type="checkbox" id="season-winter" value="winter" name="season"> Winter</a>		
+								</li>
+							</ul>
+							<hr>
+							<ul class="filter-links" id="category-filter">
+								<li>
+									<a href="#" class="dropdown-item"><input type="checkbox" id="cat-top" value="top" name="category"> Top</a>
+								</li>
+								<li>
+									<a href="#" class="dropdown-item"><input type="checkbox" id="cat-bottom" value="bottom" name="category"> Bottom</a>
+								</li>
+								<li>
+									<a href="#" class="dropdown-item"><input type="checkbox" id="cat-jacket" value="jacket" name="category"> Jacket</a>
+								</li>
+								<li>
+									<a href="#" class="dropdown-item"><input type="checkbox" id="cat-overall" value="overall" name="category"> Dress/overall</a>
+								</li>
+								<li>
+									<a href="#" class="dropdown-item"><input type="checkbox" id="cat-accessory" value="accessory" name="category"> Accessory</a>
+								</li>		
+							</ul>
+						</ul>
+					</div>
+				</div>
+
+				<div class="row" style="display:flex; flex-wrap: wrap" id="sort-items">
+					<% items.forEach((item)=>{ %>
+					<div class="col-md-2 col-sm-3 col-6 filter-items" data-category="<%= item.season %> <%= item.category %>" price="<%= item.price %>">
+						<div class="card border-0">
+							<a href="#">
+								<img src="<%=item.image%>" class="card-image-top">
+								<div class="add-button">
+									<i class="fas fa-plus"></i>
+								</div>
+							</a>
+							<div class="card-body">
+								<a href="#"><p class="card-title"><%= item.brand %></p></a>
+								<a href="#"><p class="card-title"><%= item.name %></p></a>
+							</div>
+						</div>
+					</div>
+					<% })%>
+				</div>
+
+
+
+
+			</div>
+		</div>
+	</form>
+</div>
+
+<%- include("../partials/footer") %>
