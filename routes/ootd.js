@@ -7,10 +7,17 @@ var middleware = require("../middleware");
 var passport = require("passport");
 
 //ootd index page
-router.get("/", function(req, res){
-	res.render("ootd");
+router.get("/", middleware.isLoggedIn, function(req, res){
+	Outfit.find({"author.id": req.user._id}, function(err, allOutfits){
+		if(err){
+			console.log(err);
+		}else{
+			res.render("./ootd/index", {outfits: allOutfits});
+		}
+	})
 })
 
+//NEW: show new outfit form
 router.get("/new", middleware.isLoggedIn, function(req, res){
 	Item.find({"author.id": req.user._id}, function(err, allItems){
 		if(err){
@@ -25,11 +32,14 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 router.post("/", middleware.isLoggedIn, function(req, res){
 	var author = {
 		id: req.user._id,
-		username: req.user.username
+		username: req.user.username,
 	}
-	var newOutfit = req.body.outfit;
+	var newOutfit = {};
+	newOutfit.date = req.body.outfit.date;
+	newOutfit.image = req.body.outfit.image;
 	newOutfit.author = author;
-
+	newOutfit.item = req.body.outfit.selectedItems.split(",");
+	console.log(newOutfit);
 	Outfit.create(newOutfit, function(err, newCamp){
 		if(err){
 			console.log(err);
@@ -37,6 +47,11 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 			res.redirect("/outfit-of-the-day");
 		}
 	})
-
 })
+
+//EDIT
+
+//UPDATE
+
+//DELETE
 module.exports = router;

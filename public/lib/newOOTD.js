@@ -26,7 +26,7 @@ $(function(){
 				<i class="fas fa-trash-alt delete-button"></i>
 				</div>`);
 		}
-		$("#selected-items").attr('value', itemIdArray);
+		$("#selected-items input").attr('value', itemIdArray);
 		addDeleteEffect();
 	})
 	//delete item to outfit when click on tag or delete button
@@ -38,7 +38,7 @@ $(function(){
 			itemNameArray.splice(idIndex, 1);
 		}
 		$("#"+ itemId).remove();
-		$("#selected-items").attr('value', itemIdArray);
+		$("#selected-items input").attr('value', itemIdArray);
 	})
 })
 

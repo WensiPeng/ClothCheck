@@ -6,6 +6,19 @@
 		<h3 id="index-header"> Outfit of the Day </h3>
 		<a href="/outfit-of-the-day/new" id="add-new"><i class="fas fa-plus"></i> Add a new outfit</a>
 	</div>
+
+	<div class="row" style="display:flex; flex-wrap: wrap" id="sort-items">
+		<% outfits.forEach((outfit)=>{ %>
+		<div class="col-md-3 col-sm-6 filter-items">
+			<div class="card border-0">
+				<a href="#"><img src="<%=outfit.image%>" class="card-image-top" alt="can't find image"></a>
+				<div class="card-body">
+					<a href="#"><p class="card-title"><%= outfit.date %></p></a>
+				</div>
+			</div>
+		</div>
+		<% })%>
+	</div>
 </div>
 
 <%- include("../partials/footer") %>
