@@ -12,12 +12,15 @@
 		<div class="form-group">
 			<label for="date">Date</label>
             <div class="datepicker datepicker-dropdown date input-group p-0 shadow-sm">
-                <input type="text" class="form-control py-4 px-4" id="date" name="woreDate" data-date-format="mm/dd/yyyy">
+                <input type="text" class="form-control py-4 px-4" id="date" name="outfit[date]" data-date-format="mm/dd/yyyy">
                 <div class="input-group-append"><span class="input-group-text px-4"><i class="far fa-clock"></i></span></div>
             </div>
 		</div>
 		
 			<label for="">Select your outfit</label>
+			<div id="selected-items" name="outfit[selectedItems]" value="">
+				<p>Selected items:</p>
+			</div>
 			<div id="select-section" class="container">
 				<div id="button-wrapper">
 					<!-- sort button -->
@@ -85,7 +88,7 @@
 
 				<div class="row" style="display:flex; flex-wrap: wrap" id="sort-items">
 					<% items.forEach((item)=>{ %>
-					<div class="col-md-2 col-sm-3 col-6 filter-items" data-category="<%= item.season %> <%= item.category %>" price="<%= item.price %>">
+					<div class="col-md-2 col-sm-3 col-6 filter-items" data-category="<%= item.season %> <%= item.category %>" price="<%= item.price %>" itemId="<%= item._id %>" itemName="<%= item.name %>">
 						<div class="card border-0">
 							<!-- <a href="#"> -->
 								<img src="<%=item.image%>" class="card-image-top card-img">
@@ -109,7 +112,7 @@
 	
 		<div class="form-group">
 			<label for="image">Upload an image</label>
-			<input type="text" placeholder="Image url" class="form-control">
+			<input type="text" placeholder="Image url" class="form-control" name="outfit[image]">
 		</div>
 		<button>Submit</button>
 	</form>

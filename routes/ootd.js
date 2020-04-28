@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 var Item = require("../models/item");
 var User = require("../models/user");
+var Outfit = require("../models/outfit");
 var middleware = require("../middleware");
 var passport = require("passport");
 
@@ -18,5 +19,24 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 			res.render("./ootd/new", {items: allItems});
 		}
 	})
+})
+
+//CREATE: create a new outfit
+router.post("/", middleware.isLoggedIn, function(req, res){
+	var author = {
+		id: req.user._id,
+		username: req.user.username
+	}
+	var newOutfit = req.body.outfit;
+	newOutfit.author = author;
+
+	Outfit.create(newOutfit, function(err, newCamp){
+		if(err){
+			console.log(err);
+		}else{
+			res.redirect("/outfit-of-the-day");
+		}
+	})
+
 })
 module.exports = router;
