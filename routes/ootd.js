@@ -46,6 +46,8 @@ router.post("/", middleware.isLoggedIn, function(req, res){
 			res.redirect("/outfit-of-the-day");
 		}
 	})
+	//increment worn times of each item
+	incrementWornTimes(newOutfit.item);
 })
 //SHOW
 router.get("/:id", middleware.isLoggedIn, function(req, res){
@@ -81,7 +83,6 @@ router.put("/:id", middleware.isLoggedIn, function(req, res){
 	var newOutfit = {};
 	newOutfit.date = req.body.outfit.date;
 	newOutfit.image = req.body.outfit.image;
-	console.log(req.body.outfit.selectedItems);
 	newOutfit.item = req.body.outfit.selectedItems.split(",");
 
 	Outfit.findByIdAndUpdate(req.params.id, newOutfit, function(err, updatedOutfit){
@@ -92,6 +93,7 @@ router.put("/:id", middleware.isLoggedIn, function(req, res){
 			res.redirect("/outfit-of-the-day/" + req.params.id);
 		}
 	});
+	incrementWornTimes(newOutfit.item);
 })
 
 //DESTROY
@@ -104,4 +106,18 @@ router.delete("/:id", middleware.isLoggedIn, function(req, res){
 		}
 	})
 })
+
+//increment worn times of each item
+function incrementWornTimes(itemsInOutfit){
+	itemsInOutfit.forEach(function(ele){
+		Item.findById(ele, function(err, foundItem){
+			if(err){
+				console.log(err);
+			}else{
+				foundItem.wornTimes ++;
+			}
+		})
+	})
+}
+	
 module.exports = router;

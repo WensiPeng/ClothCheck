@@ -8,7 +8,7 @@ var itemSchema = new mongoose.Schema({
 	description: String,
 	category: String, //top, bottom, dress, accessories
 	brand: String,
-	wornTimes: String,
+	wornTimes: Number,
 	author: String,
 	rating: String,
 	purchasedTime: Date,

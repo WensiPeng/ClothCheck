@@ -7,11 +7,11 @@ Features:
 	X delete items,
 
 Advance features:
-	log what I wear today,
-	view by categories,
-	rate each piece of cloth,
+	X log what I wear today,
+	X view by categories,
+	X rate each piece of cloth,
 	rank most wear,
-	outfit of the day
+	X outfit of the day
 
 Each item contains information of:
 	image,
@@ -72,13 +72,17 @@ Destroy	/outfit-of-the-day/:id 		DELETE      delete a outfit
 
 New outfit of the day:
 	X Date picker
-	 A search field to search item
-	 A section show all items
-	 Filter and sort feature
-	 Click on items to add to outfit
-	 Click to remove items from outfit
+	  A search field to search item
+	X A section show all items
+	X Filter and sort feature
+	X Click on items to add to outfit
+	X Click to remove items from outfit
 	 Add to wornTimes
 	 Add to woreDate
+
+More advanced features:
+	Add weather forecast for the day
+	Add tags to image
 
 Sidenotes:
 	use Standard,
