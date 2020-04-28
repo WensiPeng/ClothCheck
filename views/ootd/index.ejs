@@ -11,9 +11,9 @@
 		<% outfits.forEach((outfit)=>{ %>
 		<div class="col-md-3 col-sm-6 filter-items">
 			<div class="card border-0">
-				<a href="#"><img src="<%=outfit.image%>" class="card-image-top" alt="can't find image"></a>
+				<a href="/outfit-of-the-day/<%= outfit._id %>"><img src="<%= outfit.image %>" class="card-image-top" alt="can't find image"></a>
 				<div class="card-body">
-					<a href="#"><p class="card-title"><%= outfit.date %></p></a>
+					<a href="/outfit-of-the-day/<%= outfit._id %>"><p class="card-title"><%= outfit.date %></p></a>
 				</div>
 			</div>
 		</div>

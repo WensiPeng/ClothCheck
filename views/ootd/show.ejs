@@ -1,0 +1,22 @@
+<%- include("../partials/header") %>
+<link rel="stylesheet" href="/stylesheets/show.css">
+<script type="text/javascript" src="/lib/stars.js"></script>
+<script type="text/javascript" src="/lib/datepicker.js"></script>
+
+<div class="container container-show">
+	<div class="row">
+		<div class="col-md-6 col-sm-12">
+			<img class="image-show" src="<%= outfit.image %>">
+		</div>
+		<div class="col-md-6 col-sm-12">
+			<h3><%= outfit.date %></h3>
+			<a class="btn btn-primary btn-sm edit-button" href="/outfit-of-the-day/<%= outfit.id %>/edit">Edit</a>
+			<form action="/outfit-of-the-day/<%= outfit.id %>?_method=delete" method="post" class="delete-form">
+				<button class="btn btn-primary btn-sm delete-button">Delete</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+<%- include("../partials/footer") %>

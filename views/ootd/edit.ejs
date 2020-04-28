@@ -2,24 +2,23 @@
 <link rel="stylesheet" href="/stylesheets/index.css">
 <link rel="stylesheet" href="/stylesheets/form.css">
 <link rel="stylesheet" href="/stylesheets/newOOTD.css">
-<script type="text/javascript" src="/lib/stars.js"></script>
 <script type="text/javascript" src="/lib/datepicker.js"></script>
 <script type="text/javascript" src="/lib/index.js"></script>
 <script type="text/javascript" src="/lib/newOOTD.js"></script>
 
 <div class="container">
-	<form action="/outfit-of-the-day", method="POST">
+	<form action="/outfit-of-the-day/<%= outfit.id %>?_method=PUT", method="POST">
 		<div class="form-group">
 			<label for="date">Date</label>
             <div class="datepicker datepicker-dropdown date input-group p-0 shadow-sm">
-                <input type="text" class="form-control py-4 px-4" id="date" name="outfit[date]" data-date-format="mm/dd/yyyy">
+                <input type="text" class="form-control py-4 px-4" id="date" name="outfit[date]" data-date-format="mm/dd/yyyy" value="<%= outfit.date %>">
                 <div class="input-group-append"><span class="input-group-text px-4"><i class="far fa-clock"></i></span></div>
             </div>
 		</div>
 		
 			<label for="">Select your outfit</label>
 			<div id="selected-items">
-				<input type="hidden" name="outfit[selectedItems]" value="">
+				<input type="hidden" name="outfit[selectedItems]" value="<%= outfit.item %>">
 				<p>Selected items:</p>
 			</div>
 			<div id="select-section" class="container">
@@ -109,7 +108,7 @@
 	
 		<div class="form-group">
 			<label for="image">Upload an image</label>
-			<input type="text" placeholder="Image url" class="form-control" name="outfit[image]" id="image">
+			<input type="text" placeholder="Image url" class="form-control" name="outfit[image]" id="image" value="<%= outfit.image %>">
 		</div>
 		<button>Submit</button>
 	</form>

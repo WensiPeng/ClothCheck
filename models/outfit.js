@@ -3,6 +3,7 @@ var User = require("./user");
 
 var outfitSchema = new mongoose.Schema({
 	date: String,
+	image: String,
 	item: [
 		{
 			type: mongoose.Schema.Types.ObjectId,
