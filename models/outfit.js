@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 var User = require("./user");
 
 var outfitSchema = new mongoose.Schema({
-	date: String,
+	date: Date,
 	image: String,
 	item: [
 		{
