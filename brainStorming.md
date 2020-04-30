@@ -77,10 +77,11 @@ New outfit of the day:
 	X Filter and sort feature
 	X Click on items to add to outfit
 	X Click to remove items from outfit
-	 Add to wornTimes
-	 Add to woreDate
+	X Add to wornTimes
+	X Add to woreDate
 
 More advanced features:
+	Improve upload image process (upload file, crop image, add tag)
 	Add weather forecast for the day
 	Add tags to image
 

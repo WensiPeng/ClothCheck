@@ -1,5 +1,7 @@
 <%- include("../partials/header") %>
 <link rel="stylesheet" href="/stylesheets/show.css">
+<link rel="stylesheet" href="/stylesheets/showOOTD.css">
+<link rel="stylesheet" href="/stylesheets/index.css">
 <script type="text/javascript" src="/lib/stars.js"></script>
 <script type="text/javascript" src="/lib/datepicker.js"></script>
 
@@ -9,12 +11,26 @@
 			<img class="image-show" src="<%= outfit.image %>">
 		</div>
 		<div class="col-md-6 col-sm-12">
-			<h3><%= outfit.date %></h3>
+			<h3><%= outfit.date.toDateString() %></h3>
 			<a class="btn btn-primary btn-sm edit-button" href="/outfit-of-the-day/<%= outfit.id %>/edit">Edit</a>
 			<form action="/outfit-of-the-day/<%= outfit.id %>?_method=delete" method="post" class="delete-form">
 				<button class="btn btn-primary btn-sm delete-button">Delete</button>
 			</form>
 		</div>
+	</div>
+	<h5>Pieces in this outfit: </h5>
+	<div class="row" style="display:flex; flex-wrap: wrap">
+		<% outfit.item.forEach(function(ele){ %>
+		<div class="col-md-2 col-sm-3 col-6 filter-items">
+			<div class="card border-0">
+				<img src="<%= ele.image%>" class="card-image-top card-img">
+				<div class="card-body">
+					<a href="#"><p class="card-title"><%= ele.brand %></p></a>
+					<a href="#"><p class="card-title"><%= ele.name %></p></a>
+				</div>
+			</div>
+		</div>
+		<%}) %>
 	</div>
 </div>
 

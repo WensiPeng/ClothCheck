@@ -26,3 +26,9 @@ div .datepicker {
 .season + .category {
 	text-transform: capitalize;
 }
+
+/*upload image*/
+img .image-to-upload {
+	display: block;
+	max-width: 100%;
+}
