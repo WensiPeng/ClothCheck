@@ -23,12 +23,68 @@ div .datepicker {
     font-size: 0.85rem;
 }
 
-.season + .category {
+.season, .category {
 	text-transform: capitalize;
 }
 
 /*upload image*/
-img .image-to-upload {
+canvas {
+	height:300px;
+	width: 300px;
+}
+img {
 	display: block;
 	max-width: 100%;
+}
+.image-file {
+	border: none;
+}
+.image-display {
+	margin-top: 1rem;
+    margin-left: 1rem;
+	float: left;
+	display: none;
+}
+.image-display img {
+	margin-top: 1rem;
+	height: 150px;
+}
+.crop-button, .restore-button {
+	display: none;
+}
+.crop-button, .restore-button, .crop-button:hover, .restore-button:hover, .crop-button:focus, .restore-button:focus {
+	text-decoration: none;
+    color: #938e94;
+    padding: 0.3rem;
+    margin-left: 0;
+    margin-right: 0.3rem;
+    margin-top: 0.3rem;
+}
+.crop-button:hover, .restore-button:hover {
+	color: white;
+	background-color: #938e94;
+}
+
+.canvas-div {
+	display: none;
+	max-width: 50%;
+}
+.show-display {
+	display: block;
+}
+.preview {
+	margin-top: 1rem;
+	float:left;
+}
+.show-button {
+	display: inline-block;
+}
+.form-group {
+	clear:both;
+}
+.submit-button {
+	clear:both;
+	float: left;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
 }
