@@ -4,6 +4,7 @@
   "description": "This is a website to keep track of your clothes.",
   "main": "app.js",
   "scripts": {
+    "start": "node app.js"
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Wensi Peng",
